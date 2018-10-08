@@ -1,0 +1,121 @@
+- spot:
+    name: conveni_shelf_1
+    position:
+      x: 0.20
+      y: 0.475
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- spot:
+    name: conveni_shelf_2
+    position:
+      x: 0.15
+      y: -0.625
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- spot:
+    name: conveni_shelf_3
+    position:
+      x: -0.10
+      y: 0.478
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+- spot:
+    name: apc_shelf
+    position:
+      x: -0.10
+      y: -0.9
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.707
+      w: 0.707
+- spot:
+    name: table_west
+    position:
+      x: -0.30
+      y: 0.475
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 1.0
+      w: 0.0
+- spot:
+    name: table_south
+    position:
+      x: -0.9
+      y: 2.00
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: -0.707
+      w: 0.707
+- spot:
+    name: table_north
+    position:
+      x: -0.9
+      y: -0.75
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.707
+      w: 0.707
+- spot:
+    name: entrance
+    position:
+      x: -1.60
+      y: 3.225
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.707
+      w: 0.707
+- spot:
+    name: exhibit_leg_robot
+    position:
+      x: -4.20
+      y: -3.20
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.707
+      w: 0.707
+- spot:
+    name: exhibit_humanoid_hrp2
+    position:
+      x: 0.20
+      y: 2.50
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.707
+      w: 0.707
+- spot:
+    name: exhibit_sewing_machine
+    position:
+      x: -3.00
+      y: 2.60
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.707
+      w: 0.707

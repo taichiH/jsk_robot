@@ -1,10 +1,45 @@
 <launch>
-  <arg name="machine" default="aero_c"/>
   <arg name="map_file" default="$(find jsk_aero_startup)/raw_maps/room83a3.yaml"/>
 
   <include file="$(find jsk_aero_startup)/launch/wheel_with_static_map.xml">
-    <arg name="machine" value="$(arg machine)"/>
+    <arg name="machine" value="aero_c"/>
     <arg name="map_file" value="$(arg map_file)"/>
   </include>
+
+  <include file="$(find aero_std)/launch/spot_manager.launch">
+    <arg name="file" value="$(find jsk_aero_startup)/raw_maps/spot_rsj.yaml" />
+  </include>
+
+  <!-- <arg name="map" default="/home/leus/ros/kinetic/src/jsk_robot/jsk_aero_robot/jsk_aero_startup/raw_maps/83A3-costmap.png"/> -->
+  <arg name="map" default="/home/leus/ros/kinetic/src/jsk_robot/jsk_aero_robot/jsk_aero_startup/raw_maps/eng2-8f-83a3-costmap.pgm"/>
+  <arg name="origin_x" default="-10.0"/>
+  <arg name="origin_y" default="-10.0"/>
+  <arg name="resolution" default="0.025"/>
+  <arg name="base" default="base_link"/>
+  <arg name="filter_range_min" default="0.0"/>
+  <arg name="filter_range_max" default="3.0"/>
+  <arg name="weight" default="10"/>
+  <arg name="iterations" default="10000"/>
+  <arg name="threads" default="4"/>
+  <arg name="search_th" default="0.52359"/>
+  <arg name="search_x" default="0.3"/>
+  <arg name="search_y" default="0.3"/>
+
+  <!--node name="laser_map_matching" type="laser_map_matching" pkg="laser_map_matching" output="screen" machine="aero_v">
+    <param name="map" value="$(arg map)"/>
+    <param name="origin_x" value="$(arg origin_x)"/>
+    <param name="origin_y" value="$(arg origin_y)"/>
+    <param name="resolution" value="$(arg resolution)"/>
+    <param name="base" value="$(arg base)"/>
+    <param name="filter_range_min" value="$(arg filter_range_min)"/>
+    <param name="filter_range_max" value="$(arg filter_range_max)"/>
+    <param name="weight" value="$(arg weight)"/>
+    <param name="iterations" value="$(arg iterations)"/>
+    <param name="threads" value="$(arg threads)"/>
+    <param name="search_th" value="$(arg search_th)"/>
+    <param name="search_x" value="$(arg search_x)"/>
+    <param name="search_y" value="$(arg search_y)"/>
+  </node-->
+
 </launch>
 
