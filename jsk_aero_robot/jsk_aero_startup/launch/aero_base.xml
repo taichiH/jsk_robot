@@ -1,10 +1,16 @@
 <launch>
-  <arg name="machine" default="aero_c"/>
-  <arg name="map_file" default="$(find jsk_aero_startup)/raw_maps/room83a3.yaml"/>
+  <arg name="map_file" default="$(find jsk_aero_private)/83a3/raw_maps/room83a3.yaml"/>
+  <arg name="costmap_file" default="$(find jsk_aero_private)/83a3/raw_maps/room83a3_cost.yaml"/>
 
   <include file="$(find jsk_aero_startup)/launch/wheel_with_static_map.xml">
-    <arg name="machine" value="$(arg machine)"/>
+    <arg name="machine" value="aero_c"/>
     <arg name="map_file" value="$(arg map_file)"/>
+    <arg name="costmap_file" value="$(arg costmap_file)"/>
   </include>
+
+  <include file="$(find aero_std)/launch/spot_manager.launch">
+    <arg name="file" value="$(find jsk_aero_private)/83a3/spot.yaml" />
+  </include>
+
 </launch>
 
