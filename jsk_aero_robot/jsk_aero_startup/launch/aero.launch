@@ -14,8 +14,6 @@
   <include file="$(find jsk_aero_startup)/launch/aero_lifelog.xml"
            if="$(arg use_lifelog)" />
 
-  <!--include file="$(find aero_teleop)/launch/aero_teleop.launch"
-           if="$(arg use_joy)" /-->
   <include file="$(find aero_teleop2)/launch/aero_teleop2.launch"
            if="$(arg use_joy)" />
 
