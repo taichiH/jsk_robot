@@ -1,19 +1,19 @@
 # this file is originally pr2_navigation_config/dwa_local_planner.yaml
 
-acc_lim_th: 3.2
-acc_lim_x: 2.5
-acc_lim_y: 2.5
+acc_lim_th: 1.0
+acc_lim_x: 1.0
+acc_lim_y: 1.0
 
-max_vel_x: 0.55
+max_vel_x: 0.4
 min_vel_x: 0.0
 
-max_vel_y: 0.55
-min_vel_y: -0.55
+max_vel_y: 0.4
+min_vel_y: -0.4
 
-max_trans_vel: 0.55
+max_trans_vel: 0.4
 min_trans_vel: 0.0
 
-max_rot_vel: 1.0
+max_rot_vel: 0.4
 min_rot_vel: 0.0
 
 sim_time: 1.7
@@ -36,8 +36,8 @@ vx_samples: 3
 vy_samples: 10
 vtheta_samples: 10
 
-xy_goal_tolerance: 0.2
-yaw_goal_tolerance: 0.17
+xy_goal_tolerance: 0.04
+yaw_goal_tolerance: 0.06
 
 rot_stopped_vel: 0.01
 trans_stopped_vel: 0.01

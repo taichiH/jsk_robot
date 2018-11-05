@@ -4,10 +4,12 @@ transform_tolerance: 1.0  # 0.2
 
 # parameters for static_layer
 static_layer:
-  map_topic: /map
+  map_topic: map
   subscribe_to_updates: true
 
 # parameters for obstacle_layer
+# obstacles_laser:
+
 obstacle_layer:
   observation_sources: laser
   laser:

@@ -1,5 +1,4 @@
 <launch>
   <machine name="aero_c" address="localhost"/>
   <machine name="aero_v" address="localhost" default="true"/>
-  <machine name="aero_app" address="localhost"/>
 </launch>

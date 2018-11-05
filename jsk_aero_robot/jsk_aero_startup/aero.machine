@@ -1,8 +1,12 @@
 <launch>
+  <arg name="env_c_loader" default="/home/grxuser/dwa_ws/devel/env.sh" />
+  <arg name="env_v_loader" default="/home/leus/ros/kinetic/devel/env.sh" />  
   <machine name="aero_c" address="aero_c"
            user="grxuser"
-           env-loader="/home/grxuser/ros/indigo/devel/env.sh"/>
-  <machine name="aero_v" address="aero_v" default="true"/>
-  <machine name="aero_app" address="aero_app" timeout="30.0"
-           env-loader="/home/leus/ros/indigo/devel/env.sh"/>
+           env-loader="$(arg env_c_loader)"/>
+  <machine name="aero_v"
+           user="leus"
+           address="aero_v"
+           env-loader="$(arg env_v_loader)"
+           default="true" />
 </launch>
