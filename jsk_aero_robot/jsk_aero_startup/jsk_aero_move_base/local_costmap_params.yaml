@@ -1,0 +1,22 @@
+# plugins:
+#   - {name: obstacles_laser,  type: "costmap_2d::ObstacleLayer" }
+#   - {name: inflation,  type: "costmap_2d::InflationLayer" }
+plugins:
+   - 
+     name: obstacles_laser
+     type: "costmap_2d::ObstacleLayer"
+   - 
+     name: inflation
+     type: "costmap_2d::InflationLayer"
+
+# footprint: [[-0.4, -0.3], [-0.4, 0.3], [0.4, 0.3], [0.4, -0.3]]
+footprint: [[-0.35, -0.25], [-0.35, 0.25], [0.35, 0.25], [0.35, -0.25]]
+
+# copied from pr2_navigation_global/config/local_costmap_params.yaml
+global_frame: odom
+publish_frequency: 5.0
+static_map: false
+rolling_window: true
+width: 6.0 # 3.0
+height: 6.0 # 3.0
+resolution: 0.025 # 0.06

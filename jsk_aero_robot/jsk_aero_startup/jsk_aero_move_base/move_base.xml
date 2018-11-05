@@ -1,0 +1,25 @@
+<launch>
+  <node pkg="move_base" type="move_base" name="move_base"
+        respawn="false" output="screen">
+    <param name="base_global_planner" value="navfn/NavfnROS" />
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+
+    <rosparam file="$(find jsk_aero_startup)/jsk_aero_move_base/navfn_ros_planner.yaml" command="load"
+              ns="NavfnROS" />
+    <rosparam file="$(find jsk_aero_startup)/jsk_aero_move_base/dwa_local_planner.yaml" command="load"
+              ns="DWAPlannerROS" />
+
+    <!-- Load common configuration files -->
+    <rosparam file="$(find jsk_aero_startup)/jsk_aero_move_base/move_base_params.yaml" command="load" />
+    <rosparam file="$(find jsk_aero_startup)/jsk_aero_move_base/recovery_behaviors.yaml" command="load" />
+
+    <!-- Load global navigation specific parameters -->
+    <rosparam file="$(find jsk_aero_startup)/jsk_aero_move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find jsk_aero_startup)/jsk_aero_move_base/global_costmap_params.yaml" command="load" ns="global_costmap" />
+
+    <!-- Load local navigation specific parameters -->
+    <rosparam file="$(find jsk_aero_startup)/jsk_aero_move_base/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find jsk_aero_startup)/jsk_aero_move_base/local_costmap_params.yaml" command="load" ns="local_costmap" />
+
+  </node>
+</launch>
