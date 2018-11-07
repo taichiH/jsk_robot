@@ -4,7 +4,6 @@ plugins:
   - {name: inflation_layer,  type: "costmap_2d::InflationLayer" }
 
 footprint: [[-0.4, -0.3], [-0.4, 0.3], [0.4, 0.3], [0.4, -0.3]]
-# footprint: [[-0.325, -0.325], [-0.425, -0.175], [-0.425, 0.175], [-0.325, 0.325], [0.325, 0.325], [0.375, 0.0], [0.325, -0.325]]
 
 global_frame: map
 update_frequency: 5.0

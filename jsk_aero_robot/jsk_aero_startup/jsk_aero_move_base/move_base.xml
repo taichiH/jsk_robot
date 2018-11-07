@@ -1,6 +1,6 @@
 <!-- original : pr2_navigation_global/move_base.xml (electric) -->
 <launch>
-  <node pkg="move_base" type="move_base" name="move_base_node"
+  <node pkg="move_base" type="move_base" name="move_base"
         clear_params="true" output="screen">
     <!-- launch-prefix="nice -n +10"> -->
     <remap from="~clear_costmaps" to="/move_base/clear_costmaps" />
@@ -23,6 +23,7 @@
     <!-- local costmap setting -->
     <rosparam file="$(find aero_startup)/aero_move_base/config/costmap_common.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find aero_startup)/aero_move_base/config/costmap_local.yaml" command="load" ns="local_costmap" />
+
     <param name="local_costmap/width"  value="6.0"/>
     <param name="local_costmap/height" value="6.0"/>
 
