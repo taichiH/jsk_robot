@@ -16,4 +16,15 @@
 
   <node name="tf2_buffer_server" pkg="tf2_ros" type="buffer_server"/>
 
+  <!-- <node name="xtion_tf" pkg="robot_proxy" type="dynamic_tfstamped" output="screen"> -->
+  <!--   <param name="reference_frame" value="/map"/> -->
+  <!--   <param name="dynamic_frame" value="/camera_link"/> -->
+  <!--   <remap from="/tf_msg/dynamic_tf" to="/waist_camera_link"/> -->
+  <!-- </node> -->
+
+  <node name="static_tf_publisher_map_to_shelf"
+        pkg="tf" type="static_transform_publisher"
+        args="-0.27 0.0 0.25 1.57 0.0 -2.09 base_link camera_rgb_optical_frame 10">
+  </node>
+
 </launch>
