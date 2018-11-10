@@ -48,6 +48,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
         command="load" ns="local_costmap" />
     <param name="local_costmap/width"  value="6.0"/>
     <param name="local_costmap/height" value="6.0"/>
+    <param name="local_costmap/inflation/inflation_radius" value="0.1"/>
 
     <!-- static global costmap, static map provides size -->
     <rosparam
@@ -61,6 +62,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
 
     <param name="global_costmap/width"  value="10.0" if="$(arg no_static_map)"/>
     <param name="global_costmap/height" value="10.0" if="$(arg no_static_map)"/>
+    <param name="global_costmap/inflation/inflation_radius" value="0.35"/>
 
     <!-- For recovery Mode -->
     <param name="/TrajectoryPlannerROS/max_rotational_vel" value="0.5"/>
