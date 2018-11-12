@@ -9,7 +9,10 @@
 
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-  <node name="pathmap_server" pkg="map_server" type="map_server" args="$(arg pathmap_file)" />
+  <node name="pathmap_server" pkg="map_server" type="map_server" args="$(arg pathmap_file)" >
+    <remap from="map" to="pathmap"/>
+  </node>
+
   <!-- <include file="$(find jsk_maps)/launch/start_map_eng2.launch"/> -->
 
   <include file="$(find aero_std)/launch/spot_manager.launch">
@@ -17,8 +20,8 @@
   </include>
 
   <include file="$(find jsk_aero_startup)/jsk_aero_move_base/amcl.launch"/>
-  <include file="$(find jsk_aero_startup)/jsk_aero_move_base/move_base.xml">
-    <arg name="pathmap_file" value="$(arg pathmap_file)" />
-  </include>
+  <!-- <include file="$(find jsk_aero_startup)/jsk_aero_move_base/move_base.xml"> -->
+  <!--   <arg name="pathmap_file" value="$(arg pathmap_file)" /> -->
+  <!-- </include> -->
 
 </launch>
