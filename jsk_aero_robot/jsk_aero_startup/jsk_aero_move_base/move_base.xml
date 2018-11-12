@@ -28,6 +28,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
   <arg name="base_global_planner" default="navfn/NavfnROS"/>
   <arg name="base_local_planner"
        default="teb_local_planner/TebLocalPlannerROS"/>
+  <arg name="pathmap_file" default="$(find jsk_aero_private)/83a3/raw_maps/forum_path.yaml"/>
 
   <node pkg="move_base" type="move_base" name="move_base"
         respawn="false" output="screen">
@@ -42,13 +43,15 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
         file="$(find aero_startup)/aero_move_base/config/costmap_common.yaml"
         command="load" ns="local_costmap" />
 
+    <rosparam file="$(arg pathmap_file)" command="load"/>
+
     <!-- local costmap, needs size -->
     <rosparam
         file="$(find aero_startup)/aero_move_base/config/costmap_local.yaml"
         command="load" ns="local_costmap" />
     <param name="local_costmap/width"  value="6.0"/>
     <param name="local_costmap/height" value="6.0"/>
-    <param name="local_costmap/inflation/inflation_radius" value="0.1"/>
+    <param name="local_costmap/inflation/inflation_radius" value="0.2"/>
 
     <!-- static global costmap, static map provides size -->
     <rosparam
