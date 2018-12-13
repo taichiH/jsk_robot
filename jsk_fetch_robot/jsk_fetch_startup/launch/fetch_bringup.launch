@@ -14,7 +14,11 @@
 
   <!-- add jsk startups -->
   <node pkg="jsk_fetch_startup" name="warning" type="warning.py" respawn="true" />
-  <node pkg="jsk_fetch_startup" name="nav_speak" type="nav_speak.py" respawn="true" />
+  <node pkg="jsk_fetch_startup" name="nav_speak" type="nav_speak.py" respawn="true" >
+    <rosparam>
+      lang: japanese
+    </rosparam>
+  </node>
   <node if="$(arg boot_sound)" pkg="jsk_fetch_startup" name="boot_sound" type="boot_sound.py" />
 
   <!-- japanese speech node -->
@@ -37,7 +41,14 @@
   </node>
 
   <!-- publish CPU status to diagnostics -->
-  <include file="$(find pr2_computer_monitor)/demo/cpu_monitor.launch"/>
+  <node name="cpu_monitor" pkg="pr2_computer_monitor" type="cpu_monitor.py"
+        args="--diag-hostname=my_machine" >
+    <param name="check_ipmi_tool" value="false" type="bool" />
+    <param name="enforce_clock_speed" value="false" type="bool" />
+    <param name="num_cores" value="-1" type="int" />
+    <param name="load1_threshold" value="7.0"/>
+    <param name="load5_threshold" value="5.0"/>
+  </node>
 
   <!-- app manager -->
   <include file="$(find jsk_robot_startup)/lifelog/app_manager.launch">
