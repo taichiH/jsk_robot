@@ -4,6 +4,8 @@
   <arg name="use_joy" default="true"/>
 
   <arg name="ROBOT" default="$(optenv ROBOT aero)"/>
+  <arg name="spot_file" default="$(find jsk_aero_private)/83a3/spot.yaml"/>
+
   <include file="$(find jsk_aero_startup)/$(arg ROBOT).machine"/>
 
   <include file="$(find jsk_aero_startup)/launch/aero_bringup.launch"/>
@@ -26,5 +28,9 @@
         pkg="tf" type="static_transform_publisher"
         args="-0.27 0.0 0.25 1.57 0.0 -2.09 base_link camera_rgb_optical_frame 10">
   </node>
+
+  <include file="$(find aero_std)/launch/spot_manager.launch">
+    <arg name="file" value="$(arg spot_file)" />
+  </include>
 
 </launch>
