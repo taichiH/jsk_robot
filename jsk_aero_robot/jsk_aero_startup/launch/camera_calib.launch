@@ -1,0 +1,51 @@
+<launch>
+  <arg name="parent_frame" default="/r_hand_link"/>
+  <arg name="child_frame" default="/original_ar_marker"/>
+
+  <arg name="camera_frame" default="openni_camera_rgb_optical_frame"/>
+  <arg name="ar_marker_frame" default="ar_marker_13"/>
+
+  <arg name="marker_size" default="5.4" />
+  <arg name="max_new_marker_error" default="0.08" />
+  <arg name="max_track_error" default="0.2" />
+
+  <arg name="cam_image_topic" default="/openni_camera/rgb/image_raw" />
+  <arg name="cam_info_topic" default="/openni_camera/rgb/camera_info" />
+  <arg name="output_frame" default="/openni_camera_rgb_optical_frame" />
+
+  <node name="eus_motion_server"
+        pkg="jsk_aero_startup" type="eus-motion-server.l"/>
+
+  <node name="ar_track_alvar"
+        pkg="ar_track_alvar" type="individualMarkersNoKinect"
+        respawn="false" output="screen">
+    <param name="marker_size"
+           type="double" value="$(arg marker_size)"/>
+    <param name="max_new_marker_error"
+           type="double" value="$(arg max_new_marker_error)"/>
+    <param name="max_track_error"
+           type="double" value="$(arg max_track_error)"/>
+    <param name="output_frame"
+           type="string" value="$(arg output_frame)"/>
+
+    <remap from="camera_image"  to="$(arg cam_image_topic)" />
+    <remap from="camera_info"   to="$(arg cam_info_topic)" />
+  </node>
+
+  <node name="original_ar_marker_publisher"
+        pkg="tf" type="static_transform_publisher"
+        args="-0.023 0.01  -0.045
+              -1.57 0.0 1.57
+    $(arg parent_frame) $(arg child_frame) 1000" />
+
+  <node name="camera_calib"
+        pkg="jsk_aero_startup" type="camera_calib.py"
+        output="screen">
+    <rosparam subst_value="true">
+      camera_frame: $(arg camera_frame)
+      ar_marker_frame: $(arg ar_marker_frame)
+      original_ar_marker_frame: $(arg child_frame)
+    </rosparam>
+  </node>
+
+</launch>
